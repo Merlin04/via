@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Header](https://raw.githubusercontent.com/booster-labs/rocket-booster/master/.github/img/header.jpg)
 
-## Getting Started
+:rocket: The template to kickstart rocket-booster workers. The `src/index.js` file contains the code and configuration of the template. Documentation and examples for `rocket-booster` can be found [here](https://github.com/booster-labs/rocket-booster).
 
-First, run the development server:
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/booster-labs/rocket-booster-template)
 
-```bash
-npm run dev
-# or
-yarn dev
+## Build and Deploy
+
+- [Install Wrangler CLI](https://github.com/cloudflare/wrangler#installation)
+
+```sh
+npm install -g @cloudflare/wrangler
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Generate from [rocket-booster-template](https://github.com/booster-labs/rocket-booster-template)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+wrangler generate booster https://github.com/booster-labs/rocket-booster-template
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+cd booster
+npm install
+```
 
-## Learn More
+- Authenticate Wrangler with a Cloudflare API Token
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+wrangler login
+wrangler config
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Edit the configuration object in `src/index.js`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Build and publish to Cloudflare Workers
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```sh
+wrangler build
+wrangler publish
+```
