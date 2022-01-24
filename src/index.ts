@@ -4,7 +4,7 @@ addEventListener('fetch', (event) => {
   const proxy = useProxy();
   proxy.use('/', {
     upstream: {
-      domain: 'stackoverflow.com',
+      domain: 'berowra.s-smithb.deta.app',
       protocol: 'https',
     }
   });
